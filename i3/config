@@ -160,8 +160,9 @@ bar {
         status_command i3status
 	position top
 }
+
+# Load Xresources befor urxvt deamon
+exec --no-statup-id xrdb -merge ~/.Xresources
 # Urxvt deamon
 exec --no-startup-id urxvtd -q -o -f
 
-# Load Xresources
-exec --no-statup-id xrdb -merge ~/.Xresources

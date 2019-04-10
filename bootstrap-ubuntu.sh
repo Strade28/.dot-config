@@ -13,4 +13,12 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 
 ### Chnage the default "Téléchargement" to "Downloads"
 
-rmdir Téléchargments && mkdir Downloads
+rm -rf Téléchargments && mkdir Downloads
+
+mkdir ~/.config/
+rm -rf ~/.config/i3 ~/.config/nvim ~/.Xresources
+rm ~/.config/nvim/init.vim ~/.config/i3/config
+ln -s ~/.dot-config/i3 ~/.config/
+ln -s ~/.dot-config/nvim ~/.config/
+ln -s ~/.dot-config/.Xresources ~/
+xrdb -load ~/.Xresources

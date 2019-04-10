@@ -2,6 +2,7 @@ set nocompatible
 syntax on
 filetype plugin indent on
 set ignorecase
+set number
 
 "navigate in panes
 map <C-j> <C-W>j
