@@ -29,6 +29,9 @@ Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
+""" vim fugitive 
+Plug 'tpope/vim-fugitive'
+
 """ ALE checking syntax and semantics
 Plug 'w0rp/ale'
 
@@ -58,6 +61,11 @@ let g:deoplete#enable_at_startup = 1
 """TAGBAR
 Plug 'majutsushi/tagbar'
 
+"""SALT
+Plug 'saltstack/salt-vim'
+
+"""JINJA
+Plug 'lepture/vim-jinja'
 
 call plug#end()
 
