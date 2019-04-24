@@ -42,6 +42,9 @@ bindsym $mod+d exec dmenu_run
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
+# lock
+bindsym $mod+KP_Subtract exec i3lock
+
 # Sound control
 bindsym $mod+KP_Multiply exec --no-startup-id pactl -- set-sink-volume 0 +5% #increase sound volume
 bindsym $mod+KP_Divide exec --no-startup-id pactl -- set-sink-volume 0 -5% #decrease sound volume
