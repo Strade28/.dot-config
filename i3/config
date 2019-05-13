@@ -171,7 +171,7 @@ bar {
 }
 
 # Load Xresources befor urxvt deamon
-exec --no-statup-id xrdb -merge ~/.Xresources
+exec --no-startup-id xrdb -merge ~/.Xresources
 # Urxvt deamon
 exec --no-startup-id urxvtd -q -o -f
 exec --no-startup-id i3-msg 'workspace 7; exec thunderbird; workspace 1'
