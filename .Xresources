@@ -47,6 +47,7 @@ URxvt.scrollBar: true
 URxvt.scrollstyle: plain
 URxvt.scrollBar_right: true
 URxvt.scrollColor: S_green
+URxvt*saveLines:12000
 
 !! black dark/light
 *color0:                S_base02
