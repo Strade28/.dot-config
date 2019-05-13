@@ -48,7 +48,9 @@ bindsym $mod+KP_Subtract exec i3lock
 # Sound control
 bindsym $mod+KP_Multiply exec --no-startup-id pactl -- set-sink-volume 0 +5% #increase sound volume
 bindsym $mod+KP_Divide exec --no-startup-id pactl -- set-sink-volume 0 -5% #decrease sound volume
-bindsym $mod+m exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+#bindsym $mod+KP_Multiply exec --no-startup-id amixer -q set Master 2dB+ unmute
+#bindsym $mod+KP_Divide exec --no-startup-id amixer -q set Master 2dB- unmute
+bindsym $mod+m exec --no-startup-id amixer -q set Master toggle
 
 bindsym $mod+p exec mpc toggle
 bindsym $mod+dollar exec mpc next
@@ -172,4 +174,7 @@ bar {
 exec --no-statup-id xrdb -merge ~/.Xresources
 # Urxvt deamon
 exec --no-startup-id urxvtd -q -o -f
+exec --no-startup-id i3-msg 'workspace 7; exec thunderbird; workspace 1'
+exec --no-startup-id i3-msg 'workspace 8; exec skype; workspace 1'
+exec --no-startup-id i3-msg 'workspace 1; exec firefox; workspace 1'
 
