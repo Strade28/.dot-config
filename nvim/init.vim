@@ -13,6 +13,27 @@ map <C-l> <C-W>l
 
 call plug#begin('~/.local/share/nvim/plugged')
 
+""" indent line
+Plug 'Yggdroot/indentLine'
+
+""" Yaml
+Plug 'stephpy/vim-yaml'
+
+
+""" Multi cursor
+Plug 'terryma/vim-multiple-cursors'
+
+""" SURROUND
+Plug 'tpope/vim-surround'
+
+""" Lusty explorer
+" Plug 'vim-scripts/LustyExplorer'
+
+Plug 'wincent/command-t'
+
+""" SUPERTAB
+Plug 'ervandew/supertab'
+
 """ COLORIZER - color the color code (ex #fe3213) 
 Plug 'lilydjwg/colorizer'
 
@@ -29,8 +50,11 @@ Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
-""" vim fugitive 
+""" vim fugitive
 Plug 'tpope/vim-fugitive'
+
+""" TCOMMENT
+Plug 'tomtom/tcomment_vim'
 
 """ ALE checking syntax and semantics
 Plug 'w0rp/ale'
@@ -43,7 +67,12 @@ Plug 'vim-syntastic/syntastic'
 
 """ TERRAFORM
 Plug 'hashivim/vim-terraform'
+""" Plug 'b4b4r07/vim-hcl'
 Plug 'juliosueiras/vim-terraform-completion'
+Plug 'jvirtanen/vim-hcl'
+
+""" Packer
+Plug 'hashivim/vim-packer'
 
 """ NEOMAKE
 Plug 'neomake/neomake'
@@ -67,6 +96,9 @@ Plug 'saltstack/salt-vim'
 """JINJA
 Plug 'lepture/vim-jinja'
 
+""" trailing whithspaces
+Plug 'ntpeters/vim-better-whitespace'
+
 call plug#end()
 
 " Syntastic Config
@@ -86,6 +118,8 @@ set completeopt-=preview
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
+""" TERRAFORM 
+let g:terraform_align=1
 " (Optional) Enable terraform plan to be include in filter
 let g:syntastic_terraform_tffilter_plan = 1
 
@@ -94,9 +128,31 @@ let g:terraform_completion_keys = 1
 
 " (Optional) Default: 1, enable(1)/disable(0) terraform module registry completion
 let g:terraform_registry_module_completion = 0
+let g:terraform_fmt_on_save=1
 
 "Deopplet conf
 let g:deoplete#omni_patterns = {}
 let g:deoplete#omni_patterns.terraform = '[^ *\t"{=$]\w*'
 let g:deoplete#enable_at_startup = 1
 call deoplete#initialize()
+
+:let mapleader = ","
+
+nmap <silent> <Leader>f <Plug>(CommandT)
+nmap <silent> <Leader>b <Plug>(CommandTBuffer)
+nmap <silent> <Leader>j <Plug>(CommandTJump)
+nmap <silent> <Leader>t <Plug>(CommandTFlush)
+
+" minimum line under cursor
+set scrolloff=10
+
+""" spaces antab higkighting
+set list
+"""set listchars=tab:▸·,trail:X,spaces:V
+set listchars=tab:»·,extends:›,precedes:‹,nbsp:·,trail:·
+highlight WhiteSpaceBol ctermbg=blue
+highlight WhiteSpaceMol ctermbg=white
+"""match WhiteSpaceMol / /
+"""match WhiteSpaceBol /^ \+/
+"""
+"""let g:indentLine_setColors = 0

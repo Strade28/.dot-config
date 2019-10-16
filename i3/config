@@ -42,19 +42,23 @@ bindsym $mod+d exec dmenu_run
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
+# BRIGHTNESS
+bindsym $mod+Prior exec brightness.sh up
+bindsym $mod+Next exec brightness.sh down
+
 # lock
 bindsym $mod+KP_Subtract exec i3lock
 
 # Sound control
-bindsym $mod+KP_Multiply exec --no-startup-id pactl -- set-sink-volume 0 +5% #increase sound volume
+bindsym $mod+KP_Multiply exec --no-startup-id pactl -- set-sink-volume 0 +5% # adapt sink value in function $ pactl list short sink
 bindsym $mod+KP_Divide exec --no-startup-id pactl -- set-sink-volume 0 -5% #decrease sound volume
 #bindsym $mod+KP_Multiply exec --no-startup-id amixer -q set Master 2dB+ unmute
 #bindsym $mod+KP_Divide exec --no-startup-id amixer -q set Master 2dB- unmute
 bindsym $mod+m exec --no-startup-id amixer -q set Master toggle
 
 bindsym $mod+p exec mpc toggle
-bindsym $mod+dollar exec mpc next
 bindsym $mod+dead_circumflex exec mpc prev
+bindsym $mod+dollar exec mpc next
 
 # change focus
 bindsym $mod+h focus left
@@ -173,8 +177,13 @@ bar {
 # Load Xresources befor urxvt deamon
 exec --no-startup-id xrdb -merge ~/.Xresources
 # Urxvt deamon
+exec --no-startup-id sudo pkill pulseaudio
+exec --no-startup-id pulseaudio -D
 exec --no-startup-id urxvtd -q -o -f
+exec --no-startup-id nm-applet
+exec --no-startup-id xrandr --output HDMI-2 --off --output HDMI-1 --off --output DP-1 --off --output eDP-1 --primary --mode 1366x768 --pos 1680x0 --rotate normal --output DP-2 --mode 1680x1050 --pos 0x0 --rotate normal
+
+
 exec --no-startup-id i3-msg 'workspace 7; exec thunderbird; workspace 1'
-exec --no-startup-id i3-msg 'workspace 8; exec skype; workspace 1'
 exec --no-startup-id i3-msg 'workspace 1; exec firefox; workspace 1'
 

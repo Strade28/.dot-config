@@ -1,5 +1,5 @@
-URxvt.font: xft:DejaVu Sans Mono:size=10
-URxvt.boldFont: xft:DejaVu Sans Mono:size=10
+URxvt.font: xft:DejaVu Sans Mono:size=9
+URxvt.boldFont: xft:DejaVu Sans Mono:size=9
 
 !!SOLARIZED HEX     16/8 TERMCOL  XTERM/HEX   L*A*B      RGB         HSB
 !!--------- ------- ---- -------  ----------- ---------- ----------- -----------
@@ -78,5 +78,5 @@ URxvt*saveLines:12000
 *color14:               S_base1
 
 !! white dark/light
-*color7:                S_base2
+*color7:                S_base03
 *color15: S_base3
